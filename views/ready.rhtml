@@ -1,0 +1,29 @@
+      	<h3>Choose a photo to edit</h3>
+		<ul class="media-grid">
+		<% @photo_photos.each { |photo| %>
+			<li>
+				<a href="#">
+					<img 
+						class="image-source humbnail" 
+						src="<%= photo["image_url"] %>" 
+						title="<%= photo["name"] %>"
+						data-id="<%= photo["id"] %>"
+					/>
+				</a>
+			</li>
+		<% } %>
+		</ul>
+        <div id="editor">
+        	
+        </div>
+        
+       	<a href="/logout">Log Out</a>
+
+		<img id="temp-image" src="" style="position: absolute; top: 0; left: -999em;" />
+		<script type="text/javascript">
+			window['TOKEN'] = '<%= @token %>';
+			window['SECRET'] = '<%= @cipher %>';
+			var AVIARY_APIKEY = '<%= ENV['AVIARY_APIKEY'] %>';
+		</script>
+		<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
+		<script type="text/javascript" src="js/editor.js"></script>
