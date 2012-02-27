@@ -43,11 +43,11 @@ def base_url
   "#{request.scheme}://#{request.host}#{port}"
 end
 
-class String
+class Array
   def xor(key)
-    text = dup
-    text.length.times {|n| text[n] ^= key[n.modulo key.size] }
-    text
+    a = dup
+    a.length.times { |n| a[n] ^= key[n % key.size] }
+    a
   end
 end
 
@@ -63,7 +63,8 @@ get "/" do
 	@photo_photos = photo_json_parsed["photos"]
 
 	plaintext_secret = @access_token.secret
-	@cipher = CGI.escape(plaintext_secret.xor ENCRYPTION_KEY)
+	@cipher = (plaintext_secret.codepoints.to_a.xor ENCRYPTION_KEY.codepoints.to_a).inject("") { |s,c| s << c }
+
 	@token = @access_token.token 
 	erb :ready
   else
@@ -94,7 +95,7 @@ post "/save" do
 	if (postDataArray.length == 3)
 		token = postDataArray[0]
 		unescaped_secret = CGI.unescape(postDataArray[1])
-		secret = unescaped_secret.xor ENCRYPTION_KEY
+		secret = unescaped_secret.codepoints.to_a.xor ENCRYPTION_KEY.codepoints.to_a.inject("") { |s,c| s << c }
 		#original photo name is postdata
 		orig_name = postDataArray[2]
 		# get an access token, this is out of session
