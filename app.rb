@@ -101,7 +101,8 @@ post "/save" do
   postDataArray = params[:postdata].split("$$$")
   if (postDataArray.length == 3)
     token = postDataArray[0]
-    secret = CGI.unescape(postDataArray[1].codepoints.to_a.xor(ENCRYPTION_KEY.codepoints.to_a).inject("") { |s,c| s << c })
+    unescaped_secret = CGI.unescape(postDataArray[1])
+    secret = unescaped_secret.codepoints.to_a.xor(ENCRYPTION_KEY.codepoints.to_a).inject("") { |s,c| s << c }
     #original photo name is postdata
     orig_name = postDataArray[2]
     # get an access token, this is out of session
