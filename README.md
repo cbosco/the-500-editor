@@ -8,7 +8,7 @@ It is a sinatra rack app designed to be deployed to the heroku cedar stack.
 
 ## Quick start
 
-    $ git clone http://github.com/cbosco/the-500-editor
+    $ git clone https://github.com/cbosco/the-500-editor.git
     $ cd the-500-editor
     $ touch ./.env
 
