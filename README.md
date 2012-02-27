@@ -28,4 +28,5 @@ Environmental variables (`.env` locally)
   500PX_APIKEY=XXXXX
   500PX_SECRET=XXXXX
   AVIARY_APIKEY=XXXXX
+  AVIARY_SECRET=XXXXX
   TMPDIR=./tmp

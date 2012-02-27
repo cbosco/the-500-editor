@@ -36,8 +36,8 @@
 			
 			apiKey: window['AVIARY_APIKEY'],
       apiVersion: 2,
-      signature: '66396e84d2c7069a581158d1a9be5095',
-			timestamp: '1318790434',
+      timestamp: window['TIMESTAMP'],
+			signature: window['AVIARY_SIGNATURE'],
 			
 			postData: null,
 			

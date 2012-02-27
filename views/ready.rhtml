@@ -21,9 +21,11 @@
 
 		<img id="temp-image" src="" style="position: absolute; top: 0; left: -999em;" />
 		<script type="text/javascript">
+			window['TIMESTAMP'] = '<%= @timestamp %>';
 			window['TOKEN'] = '<%= @token %>';
 			window['SECRET'] = '<%= @cipher %>';
-			var AVIARY_APIKEY = '<%= ENV['AVIARY_APIKEY'] %>';
+			window['AVIARY_APIKEY'] = '<%= ENV['AVIARY_APIKEY'] %>';
+			window['AVIARY_SIGNATURE'] = '<%= @aviary_signature %>';
 		</script>
 		<script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
 		<script type="text/javascript" src="js/editor.js"></script>

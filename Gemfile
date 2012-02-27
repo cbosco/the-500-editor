@@ -5,6 +5,7 @@ gem "oauth"
 gem "json"
 gem "rest-open-uri"
 gem "rest-client"
+gem "net-http-digest_auth"
 
 # local
 gem "shotgun"
