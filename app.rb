@@ -63,7 +63,7 @@ get "/" do
 	@photo_photos = photo_json_parsed["photos"]
 
 	plaintext_secret = @access_token.secret
-	@cipher = (plaintext_secret.codepoints.to_a.xor ENCRYPTION_KEY.codepoints.to_a).inject("") { |s,c| s << c }
+	@cipher = plaintext_secret.codepoints.to_a.xor(ENCRYPTION_KEY.codepoints.to_a).inject("") { |s,c| s << c }
 
 	@token = @access_token.token 
 	erb :ready
@@ -95,7 +95,7 @@ post "/save" do
 	if (postDataArray.length == 3)
 		token = postDataArray[0]
 		unescaped_secret = CGI.unescape(postDataArray[1])
-		secret = unescaped_secret.codepoints.to_a.xor ENCRYPTION_KEY.codepoints.to_a.inject("") { |s,c| s << c }
+		secret = unescaped_secret.codepoints.to_a.xor(ENCRYPTION_KEY.codepoints.to_a).inject("") { |s,c| s << c }
 		#original photo name is postdata
 		orig_name = postDataArray[2]
 		# get an access token, this is out of session
