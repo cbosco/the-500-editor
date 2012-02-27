@@ -8,16 +8,15 @@ It is a sinatra rack app designed to be deployed to the heroku cedar stack.
 
 ## Quick start
 
-  $ git clone http://github.com/cbosco/the-500-editor
-  $ cd the-500-editor
-  $ touch ./.env
+    $ git clone http://github.com/cbosco/the-500-editor
+    $ cd the-500-editor
+    $ touch ./.env
 
 (See Requirements for the environmental variables.  You will need API keys from Aviary and 500px.)
 
-  $ gem install bundler
-  $ bundle install
-  $ bundle exec shotgun -O config.ru
-
+    $ gem install bundler
+    $ bundle install
+    $ bundle exec shotgun -O config.ru
 
 ## Requirements
 
@@ -25,8 +24,8 @@ It is a sinatra rack app designed to be deployed to the heroku cedar stack.
 
 Environmental variables (`.env` locally)
 
-  500PX_APIKEY=XXXXX
-  500PX_SECRET=XXXXX
-  AVIARY_APIKEY=XXXXX
-  AVIARY_SECRET=XXXXX
-  TMPDIR=./tmp
+    500PX_APIKEY=XXXXX
+    500PX_SECRET=XXXXX
+    AVIARY_APIKEY=XXXXX
+    AVIARY_SECRET=XXXXX
+    TMPDIR=./tmp
