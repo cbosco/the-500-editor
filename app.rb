@@ -4,6 +4,7 @@ require "rubygems"
 require "sinatra"
 require "erb"
 require "oauth"
+require "oauth/consumer"
 require "json" 
 require "open-uri"
 require "rest_client"
@@ -67,9 +68,9 @@ get "/" do
     @token = @access_token.token 
 
     # UNIX timestamp
-    @timestamp = Time.now.to_i
+    @timestamp = Time.now.to_i().to_s()
     @aviary_signature = Digest::MD5.hexdigest(
-      ENV["AVIARY_APIKEY"] + ENV["AVIARY_SECRET"] + @aviary_timestamp
+      ENV["AVIARY_APIKEY"] + ENV["AVIARY_SECRET"] + @timestamp
     )
     erb :ready
   else
