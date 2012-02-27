@@ -104,8 +104,8 @@ post "/save" do
     # Retrieve a file object from the image URL
     image_from_web  = open(params[:hiresurl]) {|f| f.read }
     # Write the file to the local filesystem
-    Dir.mkdir ENV['TMPDIR'] unless Dir.exists? ENV['TMPDIR'] 
-    Dir.chdir(ENV['TMPDIR'])
+    Dir.mkdir(ENV["TMPDIR"]) unless (File.exists?(ENV["TMPDIR"]) && File.directory?(ENV["TMPDIR"]))
+    Dir.chdir(ENV["TMPDIR"])
     File.open(file_name, "w") {|f| f.write(image_from_web) }
     Dir.chdir("../")
 
