@@ -3,7 +3,7 @@
 require "rubygems"
 require "sinatra"
 require "erb"
-require "oauth/consumer"
+require "oauth"
 require "json" 
 require "open-uri"
 require "rest_client"
