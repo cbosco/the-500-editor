@@ -14,7 +14,7 @@ require "cgi"
 enable :sessions
 
 unless ENV["500PX_APIKEY"] && ENV["500PX_SECRET"] && ENV["AVIARY_APIKEY"] && ENV["AVIARY_SECRET"]
-  abort("missing env vars: please set 500PX_APIKEY, 500PX_SECRET, AVIARY_APIKEY and AVIARY_APIKEY with your app credentials")
+  abort("missing env vars: please set 500PX_APIKEY, 500PX_SECRET, AVIARY_APIKEY and AVIARY_SECRET with your app credentials")
 end
 
 before do

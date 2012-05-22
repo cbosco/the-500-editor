@@ -16,11 +16,20 @@ It is a sinatra rack app designed to be deployed to the heroku cedar stack.
 
     $ gem install bundler
     $ bundle install
-    $ bundle exec shotgun -O config.ru
+    $ foreman start -f Procfile.dev
+    
+This will use shotgun and start a server at `http://localhost:9393/`
+
+Alternatively you can use `thin` as heroku does by using the default Procfile
+
+    $ foreman start
+    
+This will start a server at `http://localhost:5000/`
+
 
 ## Requirements
 
-*ruby 1.9.2*
+**ruby 1.9.2**  (see [RVM](https://rvm.io//))
 
 Environmental variables (`.env` locally)
 
